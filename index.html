@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визуализация алгоритмов растеризации</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Визуализация алгоритмов растеризации</h1>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="algorithm-selector">
+                    <h3>Выбор алгоритма:</h3>
+                    <select id="algorithm">
+                        <option value="step_by_step">Пошаговый алгоритм</option>
+                        <option value="dda">Алгоритм ЦДА</option>
+                        <option value="bresenham_line">Алгоритм Брезенхема (линия)</option>
+                        <option value="bresenham_circle">Алгоритм Брезенхема (окружность)</option>
+                        <option value="castel_pitway">Алгоритм Кастла-Питвея</option>
+                        <option value="wu_smooth">Сглаживание Ву</option>
+                    </select>
+                </div>
+
+                <div class="coordinates-input">
+                    <h3>Координаты:</h3>
+                    <div class="input-group">
+                        <label>Точка 1 (x1, y1):</label>
+                        <div class="coord-inputs">
+                            <input type="number" id="x1" value="2">
+                            <input type="number" id="y1" value="3">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Точка 2 (x2, y2):</label>
+                        <div class="coord-inputs">
+                            <input type="number" id="x2" value="14">
+                            <input type="number" id="y2" value="8">
+                        </div>
+                    </div>
+                    <div class="input-group" id="radius-group" style="display: none;">
+                        <label>Радиус:</label>
+                        <input type="number" id="radius" value="5">
+                    </div>
+                </div>
+
+                <div class="grid-settings">
+                    <h3>Настройки сетки:</h3>
+                    <div class="input-group">
+                        <label>Масштаб: <span id="scale-value">2x</span></label>
+                        <input type="range" id="scale" min="1" max="5" value="2">
+                    </div>
+                    <div class="input-group">
+                        <label>Размер сетки:</label>
+                        <input type="number" id="grid-size" value="20" min="10" max="50">
+                    </div>
+                </div>
+
+                <button id="draw-btn">Построить</button>
+                <button id="clear-btn">Очистить</button>
+            </div>
+
+            <div class="results-panel">
+                <h3>Результаты:</h3>
+                <div id="execution-time">Время выполнения: -</div>
+                <div id="pixels-count">Количество пикселей: -</div>
+                <div id="computations">
+                    <h4>Вычисления:</h4>
+                    <pre id="computations-text">-</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <div class="canvas-container">
+                <canvas id="grid-canvas" width="800" height="800"></canvas>
+            </div>
+        </div>
+
+        <div class="description">
+            <h3>Описание алгоритмов:</h3>
+            <div id="algorithm-description">
+                <p>Выберите алгоритм для просмотра описания и примеров вычислений.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
